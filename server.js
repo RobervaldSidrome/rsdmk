@@ -1,18 +1,13 @@
 const express = require('express');
 const path = require('path');
 
+const nomeApp = process.env.rsdmk;
 const app = express();
-
-app.use(express.static(path.join(__dirname, 'dist')));
-
-app.get('*', (_req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
+ 
+app.use(express.static(`$/dist/$`));
+ 
+app.get('/*', (req, res) => {
+res.sendFile(path.join(`$/dist/$/index.html`));
 });
-
-app.listen(port, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(`server started port: ${port}`);
-  }
-});
+ 
+app.listen(process.env.PORT || 8080);
